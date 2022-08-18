@@ -1,7 +1,8 @@
 const express = require("express");
 const bodyParser = require('body-parser')
 const mongoose = require("mongoose");
-const config = require("config");
+//const config = require("config");
+const config = require("./config/config.config");
 const fileUpload = require("express-fileupload")
 const authRouter = require("./routes/auth.routes")
 const fileRouter = require("./routes/file.routes")
@@ -13,7 +14,9 @@ const chartUSORouterRouter = require("./routes/chartUSO.routes")
 const chartAllRouterRouter = require("./routes/chartAll.routes")
 const newsRouter = require("./routes/news.routes")
 const app = express();
-const PORT = process.env.PORT || config.get('serverPort')
+//const PORT = process.env.PORT || config.get('serverPort')
+const PORT = process.env.PORT || config.port
+//const PORT = process.env.PORT
 const corsMiddleware = require('./middleware/cors.middleware')
 const filePathMiddleware = require('./middleware/filepath.middleware')
 const path = require('path')
@@ -36,7 +39,7 @@ app.use(bodyParser.urlencoded({extended: true}))
 
 const start = async () => {
     try {
-        await mongoose.connect(config.get("dbUrl"))
+        await mongoose.connect(config.dbUrl)
             //await mongoose.connect(config.get("dbPath"))
             .then(() => console.log('MongoDB connected'))
             .catch(error => console.log(error))

@@ -1,4 +1,4 @@
-const Uuid = require('uuid')
+//const Uuid = require('uuid')
 const fs = require('fs')
 const moment = require('moment')
 const config = require('config')
@@ -69,9 +69,9 @@ class newsController {
             const media = req.files.file
             const news = await News.findById(req.query.id)
             console.log(news)
-            const newsImageName = Uuid.v4() + ".jpg"
-            media.mv(config.get('staticPath') + "\\" + newsImageName)
-            news.media = newsImageName
+            //const newsImageName = Uuid.v4() + ".jpg"
+           // media.mv(config.get('staticPath') + "\\" + newsImageName)
+            //news.media = newsImageName
             await news.save()
             return res.json(news)
         } catch (e) {

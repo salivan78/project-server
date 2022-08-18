@@ -2,7 +2,8 @@ const Router = require("express");
 const User = require("../models/User")
 const bcrypt = require("bcryptjs")
 const jwt = require("jsonwebtoken")
-const config = require("config")
+//const config = require("config")
+const config = require("../config/config.congig")
 const {check, validationResult} = require("express-validator")
 const router = new Router()
 const authMiddleware = require('../middleware/auth.middleware')
@@ -51,7 +52,8 @@ router.post('/login',
             if (!isPassValid) {
                 return res.status(400).json({message: "Некорректный пароль"})
             }
-            const token = jwt.sign({id: user.id}, config.get("secretKey"), {expiresIn: "1h"})
+            //const token = jwt.sign({id: user.id}, config.get("secretKey"), {expiresIn: "1h"})
+            const token = jwt.sign({id: user.id}, config.get(config.secretKey), {expiresIn: "1h"})
             return res.json({
                 token,
                 user: {
@@ -74,7 +76,8 @@ router.get('/auth', authMiddleware,
     async (req, res) => {
         try {
             const user = await User.findOne({_id: req.user.id})
-            const token = jwt.sign({id: user.id}, config.get("secretKey"), {expiresIn: "3h"})
+            //const token = jwt.sign({id: user.id}, config.get("secretKey"), {expiresIn: "3h"})
+            const token = jwt.sign({id: user.id}, config.get(config.secretKey), {expiresIn: "3h"})
             return res.json({
                 token,
                 user: {

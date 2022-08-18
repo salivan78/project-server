@@ -1,6 +1,6 @@
 const config = require('config')
 const fs = require('fs')
-const Uuid = require('uuid')
+//const Uuid = require('uuid')
 const fileService = require('../services/fileService')
 const User = require('../models/User')
 const File = require('../models/File')
@@ -144,9 +144,9 @@ class FileController {
         try {
             const file = req.files.file
             const user = await User.findById(req.user.id)
-            const avatarName = Uuid.v4() + ".jpg"
-            file.mv(config.get('staticPath') + "\\" + avatarName)
-            user.avatar = avatarName
+            //const avatarName = Uuid.v4() + ".jpg"
+            //file.mv(config.get('staticPath') + "\\" + avatarName)
+            //user.avatar = avatarName
             await user.save()
             return res.json(user)
         } catch (e) {
