@@ -13,7 +13,7 @@ module.exports = (req, res, next) => {
             return res.status(401).json({message: 'Auth error'})
         }
         //const decoded = jwt.verify(token, config.get('secretKey'))
-        const decoded = jwt.verify(token, config.get(config.config.secretKey))
+        const decoded = jwt.verify(token, config.get('secretKey'))
         req.user = decoded
         next()
     } catch (e) {
