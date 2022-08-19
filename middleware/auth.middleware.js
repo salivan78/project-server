@@ -1,6 +1,6 @@
 const jwt = require('jsonwebtoken')
 //const config = require('config')
-const config = require('./../config/config')
+const config = require('../config/config')
 
 module.exports = (req, res, next) => {
     if (req.method === 'OPTIONS') {
@@ -13,7 +13,7 @@ module.exports = (req, res, next) => {
             return res.status(401).json({message: 'Auth error'})
         }
         //const decoded = jwt.verify(token, config.get('secretKey'))
-        const decoded = jwt.verify(token, config.get('secretKey'))
+        const decoded = jwt.verify(token, get(config.config.secretKey))
         req.user = decoded
         next()
     } catch (e) {
