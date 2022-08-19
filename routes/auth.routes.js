@@ -61,7 +61,7 @@ router.post('/login',
                     email: user.email,
                     diskSpace: user.diskSpace,
                     usedSpace: user.usedSpace,
-                    avatar: user.avatar,
+                    //avatar: user.avatar,
                     role: user.role
                 }
             })
@@ -85,7 +85,7 @@ router.get('/auth', authMiddleware,
                     email: user.email,
                     diskSpace: user.diskSpace,
                     usedSpace: user.usedSpace,
-                    avatar: user.avatar,
+                    //avatar: user.avatar,
                     role: user.role
                 }
             })

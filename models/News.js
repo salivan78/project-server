@@ -1,6 +1,5 @@
 const mongoosePaginate = require('mongoose-paginate-v2')
-const {model, Schema, ObjectId} = require('mongoose')
-
+const {model, Schema} = require('mongoose')
 
 const News = new Schema({
     media: {type: String, default:''},

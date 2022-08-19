@@ -5,7 +5,6 @@ const listController = require('../controllers/listController')
 
 router.post('', authMiddleware, listController.createList)
 router.put('', authMiddleware, listController.updateList)
-//router.put('', authMiddleware, listController.addInMonth)
 router.get('', authMiddleware, listController.getAll)
 router.get('/:name', authMiddleware, listController.getList)
 

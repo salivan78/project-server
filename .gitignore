@@ -1,2 +1,5 @@
 /node_modules/
 .vercel
+appServerTest.js
+models/DepartmentOld.js
+models/DataChartOld.js

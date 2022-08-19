@@ -1,5 +1,4 @@
 export const config = {
-  port: 5000,
   dbUrl: "mongodb+srv://Ivan:123@portal.l4qpa.mongodb.net/portal?retryWrites=true&w=majority",
   dbPath: "mongodb://localhost/khv",
   secretKey: "mern-secret-key",
